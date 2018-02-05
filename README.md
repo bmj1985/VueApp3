@@ -1,5 +1,5 @@
 # Galvanize Dinosaurs - Apply
-
+Link to original repo: https://github.com/bmj1985/galvanize-dinosaurs/tree/master/drills/version-2
 ## Instructions
 
 1. Refactor the provided site so that it uses your chosen front end framework.
@@ -26,3 +26,4 @@
 #### Deployed Link
 
 #### Framework of choice
+Vuejs
