@@ -2,14 +2,14 @@
   <div>
 <form id="application-input">
       <label>Apply Here: </label>
-      <textarea id="application-text" rows="8" cols="100" v-model="message"></textarea>
-      <input id="submit" type="submit" value="Submit" @click.prevent="submitMessage"/>
+      <textarea id="application-text" rows="8"
+      cols="100" v-model="formText"
+      @keyup="bindMessageToPreview(formText)">
+      </textarea>
+      <input id="submit" type="submit" value="submit" 
+      @click.prevent="submitMessage"/>
     </form>
     <p id="message">{{success}}</p>
-    <button id="preview-toggle" @click="showPreview =! showPreview">Show Preview</button>
-    <section id="application-preview" :class="{hidden: showPreview}">
-      <p>{{message}}</p>
-    </section>
   </div>
 </template>
 
@@ -19,8 +19,7 @@ export default {
   data() {
     return {
       success: '',
-      showPreview: true,
-      message: ''
+      formText: ''
     };
   },
   methods: {
@@ -28,37 +27,25 @@ export default {
       this.success = '';
     },
     submitMessage() {
-      if (this.message === '') {
+      if (this.formText === '') {
         this.success = 'You submitted a blank application. Please try again.';
         setTimeout(() => {
           this.clearMessage();
-        }, 5000);
+        }, 2000);
       } else {
         this.success = 'Your application was submitted!';
-        this.message = '';
+        this.formText = '';
         setTimeout(() => {
           this.clearMessage();
-        }, 20000);
+        }, 2000);
       }
     }
-  }
+  },
+  props: ['bindMessageToPreview']
 };
 </script>
 
 <style scoped>
-#application-preview {
-  border-radius: 6px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-  border: 1px solid darkgrey;
-  min-height: 100px;
-  margin-top: 20px;
-  padding: 10px;
-  max-width: 786px;
-}
-.hidden {
-  display: none;
-}
-
 #application-text {
   max-width: 786px;
   min-height: 100px;

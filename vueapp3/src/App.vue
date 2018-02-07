@@ -3,23 +3,51 @@
     <TheHeader/>
     <main>
     <JobDetails/>
-    <InputForm/>
+    <InputForm :bindMessageToPreview="bindMessageToPreview" :clear="clearMessage" />
+    <ThePreview :preview="formText"/>
     </main>
     <TheFooter/>
   </div>
 </template>
 
 <script>
-import TheHeader from './components/TheHeader';
-import InputForm from './components/InputForm';
-import JobDetails from './components/JobDetails';
-import TheFooter from './components/TheFooter';
+import TheHeader from '@/components/TheHeader';
+import InputForm from '@/components/InputForm';
+import JobDetails from '@/components/JobDetails';
+import ThePreview from '@/components/ThePreview';
+import TheFooter from '@/components/TheFooter';
 
 export default {
   name: 'App',
-  components: { TheHeader, InputForm, JobDetails, TheFooter },
+  components: { TheHeader, InputForm, JobDetails, ThePreview, TheFooter },
   data() {
-    return {};
+    return {
+      formText: '',
+      success: ''
+    };
+  },
+  methods: {
+    clearMessage() {
+      this.success = '';
+    },
+    submitMessage() {
+      if (this.formText === '') {
+        this.success = 'You submitted a blank application. Please try again.';
+        setTimeout(() => {
+          this.clearMessage();
+        }, 2000);
+      } else {
+        this.success = 'Your application was submitted!';
+        this.formText = '';
+        setTimeout(() => {
+          this.clearMessage();
+        }, 2000);
+      }
+    },
+    bindMessageToPreview(preview) {
+      console.log('Hello world!');
+      this.formText = preview;
+    }
   }
 };
 </script>
