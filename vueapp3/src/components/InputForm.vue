@@ -58,4 +58,11 @@ export default {
 .hidden {
   display: none;
 }
+
+#application-text {
+  max-width: 786px;
+  min-height: 100px;
+  margin-top: 20px;
+  padding: 10px;
+}
 </style>
