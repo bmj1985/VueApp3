@@ -53,6 +53,7 @@ export default {
   min-height: 100px;
   margin-top: 20px;
   padding: 10px;
+  max-width: 786px;
 }
 .hidden {
   display: none;
