@@ -5,10 +5,10 @@
       <textarea id="application-text" rows="8" cols="100" v-model="message"></textarea>
       <input id="submit" type="submit" value="Submit" @click.prevent="submitMessage"/>
     </form>
-    <p id="success">&nbsp;{{success}}</p>
+    <p id="message">{{success}}</p>
     <button id="preview-toggle" @click="showPreview =! showPreview">Show Preview</button>
     <section id="application-preview" :class="{hidden: showPreview}">
-      <p id="message">{{message}}</p>
+      <p>{{message}}</p>
     </section>
   </div>
 </template>
@@ -64,10 +64,5 @@ export default {
   min-height: 100px;
   margin-top: 20px;
   padding: 10px;
-}
-.message {
-  max-width: 786px;
-  min-height: 100px;
-  text-emphasis: wrap;
 }
 </style>
