@@ -5,7 +5,7 @@
       <textarea id="application-text" rows="8" cols="100" v-model="message"></textarea>
       <input id="submit" type="submit" value="Submit" @click.prevent="submitMessage"/>
     </form>
-    <p id="message">&nbsp;{{success}}</p>
+    <p id="success">&nbsp;{{success}}</p>
     <button id="preview-toggle" @click="showPreview =! showPreview">Show Preview</button>
     <section id="application-preview" :class="{hidden: showPreview}">
       <p id="message">{{message}}</p>
@@ -32,13 +32,13 @@ export default {
         this.success = 'You submitted a blank application. Please try again.';
         setTimeout(() => {
           this.clearMessage();
-        }, 4000);
+        }, 5000);
       } else {
         this.success = 'Your application was submitted!';
         this.message = '';
         setTimeout(() => {
           this.clearMessage();
-        }, 4000);
+        }, 20000);
       }
     }
   }
