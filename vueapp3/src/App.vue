@@ -3,7 +3,8 @@
     <TheHeader/>
     <main>
     <JobDetails/>
-    <InputForm :bindMessageToPreview="bindMessageToPreview" :clear="clearMessage" />
+    <InputForm :bindMessageToPreview="bindMessageToPreview"
+    :submitMessage="submitMessage" :success="success" :formText="formText"/>
     <ThePreview :preview="formText"/>
     </main>
     <TheFooter/>
@@ -29,23 +30,22 @@ export default {
   methods: {
     clearMessage() {
       this.success = '';
+      this.formText = '';
     },
     submitMessage() {
       if (this.formText === '') {
         this.success = 'You submitted a blank application. Please try again.';
         setTimeout(() => {
           this.clearMessage();
-        }, 2000);
+        }, 5000);
       } else {
         this.success = 'Your application was submitted!';
-        this.formText = '';
         setTimeout(() => {
           this.clearMessage();
-        }, 2000);
+        }, 5000);
       }
     },
     bindMessageToPreview(preview) {
-      console.log('Hello world!');
       this.formText = preview;
     }
   }

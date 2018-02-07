@@ -6,7 +6,7 @@
       cols="100" v-model="formText"
       @keyup="bindMessageToPreview(formText)">
       </textarea>
-      <input id="submit" type="submit" value="submit" 
+      <input id="submit" type="submit" value="submit"
       @click.prevent="submitMessage"/>
     </form>
     <p id="message">{{success}}</p>
@@ -17,31 +17,9 @@
 export default {
   name: 'InputForm',
   data() {
-    return {
-      success: '',
-      formText: ''
-    };
+    return {};
   },
-  methods: {
-    clearMessage() {
-      this.success = '';
-    },
-    submitMessage() {
-      if (this.formText === '') {
-        this.success = 'You submitted a blank application. Please try again.';
-        setTimeout(() => {
-          this.clearMessage();
-        }, 2000);
-      } else {
-        this.success = 'Your application was submitted!';
-        this.formText = '';
-        setTimeout(() => {
-          this.clearMessage();
-        }, 2000);
-      }
-    }
-  },
-  props: ['bindMessageToPreview']
+  props: ['bindMessageToPreview', 'submitMessage', 'success', 'formText']
 };
 </script>
 
