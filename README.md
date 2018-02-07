@@ -18,7 +18,7 @@ Link to original repo: https://github.com/bmj1985/galvanize-dinosaurs/tree/maste
 * header
 * job details
 * input form
-* preview: I will redo this as necessary, but it makes absolutely zero sense to do the preview as a separate component in Vue. This is best done with v-model in the same component.
+* preview
 * footer
 
 ## Testing
