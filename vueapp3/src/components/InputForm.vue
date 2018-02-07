@@ -65,4 +65,9 @@ export default {
   margin-top: 20px;
   padding: 10px;
 }
+.message {
+  max-width: 786px;
+  min-height: 100px;
+  text-emphasis: wrap;
+}
 </style>
